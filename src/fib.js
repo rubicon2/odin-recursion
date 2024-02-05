@@ -1,14 +1,13 @@
-export function fib(n) {
+export function fibList(n) {
   const fibs = [0, 1];
   for (let current = fibs.length; current <= n; current += 1) {
     fibs.push(fibs[current - 1] + fibs[current - 2]);
   }
-  return fibs[fibs.length - 1];
+  return fibs;
 }
 
-export function fibRec(n) {
-  if (n < 2) return n;
-  return fibRec(n - 1) + fibRec(n - 2);
+export function fib(n) {
+  return fibList(n)[n];
 }
 
 export function fibListRec(n) {
@@ -17,4 +16,9 @@ export function fibListRec(n) {
   // Due to base case, prior will always consist of at least [0, 1]
   const current = prior[n - 1] + prior[n - 2];
   return [...prior, current];
+}
+
+export function fibRec(n) {
+  if (n < 2) return n;
+  return fibRec(n - 1) + fibRec(n - 2);
 }
