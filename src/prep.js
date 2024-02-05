@@ -45,6 +45,7 @@ export function totalInts(obj) {
 export function sumSquares(obj) {
   if (typeof obj === 'number') return obj * obj;
   if (typeof obj !== 'object') return 0;
+  // Otherwise, object must be an object or array
   return Object.values(obj).reduce(
     (sum, current) => sum + sumSquares(current),
     0,
