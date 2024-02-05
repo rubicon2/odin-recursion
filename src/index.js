@@ -1,12 +1,8 @@
 import './style.css';
-import factorial, { factorialSlow } from './factorial';
+import { fib, fibRec } from './fib';
 
-console.time('fast');
-const f = factorial(9000);
-console.timeEnd('fast');
-console.log(f);
+const fibRecTest = fibRec(8);
+console.log('fibRec 8: ', fibRecTest);
 
-console.time('slow');
-const s = factorialSlow(9000);
-console.timeEnd('slow');
-console.log(s);
+const fibTest = fib(8);
+console.log('fib 8: ', fibTest);
