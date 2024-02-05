@@ -51,3 +51,8 @@ export function sumSquares(obj) {
     0,
   );
 }
+
+export function replicate(repetitions, value) {
+  if (repetitions <= 0) return [];
+  return [value].concat(replicate(repetitions - 1, value));
+}
