@@ -10,3 +10,11 @@ export function fibRec(n) {
   if (n < 2) return n;
   return fibRec(n - 1) + fibRec(n - 2);
 }
+
+export function fibListRec(n) {
+  if (n < 2) return [0, 1];
+  const prior = fibListRec(n - 1);
+  // Due to base case, prior will always consist of at least [0, 1]
+  const current = prior[n - 1] + prior[n - 2];
+  return [...prior, current];
+}
