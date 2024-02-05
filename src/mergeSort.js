@@ -1,4 +1,4 @@
-export default function mergeSort(arr) {
+export default function mergeSort(arr, comparatorFn) {
   // If array is length 1, return it
   if (arr.length === 1) return arr;
 
@@ -8,15 +8,20 @@ export default function mergeSort(arr) {
   let right = arr.slice(halfway);
 
   // Sort each half
-  left = mergeSort(left);
-  right = mergeSort(right);
+  left = mergeSort(left, comparatorFn);
+  right = mergeSort(right, comparatorFn);
 
   // Merge together and return
   const merged = [];
   // When either left or right is empty, exit loop
   while (left.length && right.length) {
-    if (left[0] < right[0]) merged.push(left.shift());
-    else merged.push(right.shift());
+    if (comparatorFn) {
+      if (comparatorFn(left[0], right[0])) merged.push(left.shift());
+      else merged.push(right.shift());
+    } else {
+      if (left[0] < right[0]) merged.push(left.shift());
+      else merged.push(right.shift());
+    }
   }
   return merged.concat(left, right);
 }
