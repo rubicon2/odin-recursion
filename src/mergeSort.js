@@ -16,11 +16,11 @@ export default function mergeSort(arr, comparatorFn) {
   // When either left or right is empty, exit loop
   while (left.length && right.length) {
     if (comparatorFn) {
-      if (comparatorFn(left[0], right[0])) merged.push(left.shift());
-      else merged.push(right.shift());
+      merged.push(
+        comparatorFn(left[0], right[0]) ? left.shift() : right.shift(),
+      );
     } else {
-      if (left[0] < right[0]) merged.push(left.shift());
-      else merged.push(right.shift());
+      merged.push(left[0] < right[0] ? left.shift() : right.shift());
     }
   }
   return merged.concat(left, right);
