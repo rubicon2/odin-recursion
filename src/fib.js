@@ -27,8 +27,8 @@ export function fibRecFast(n) {
   return fibListRec(n)[n];
 }
 
-// Total: O(1) + O(2n), i.e. O(2^n) - exponential
+// Total: O(1) + O(2^n), i.e. O(2^n) - exponential
 export function fibRec(n) {
   if (n < 2) return n; // O(1)
-  return fibRec(n - 1) + fibRec(n - 2); // O(2n)
+  return fibRec(n - 1) + fibRec(n - 2); // O(2^n)
 }
